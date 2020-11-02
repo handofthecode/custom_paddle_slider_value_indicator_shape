@@ -5,8 +5,6 @@ import 'dart:math' as math;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'dart:ui' show Path;
-
 
 class _CustomPaddleSliderValueIndicatorPathPainter {
   const _CustomPaddleSliderValueIndicatorPathPainter();
@@ -290,7 +288,9 @@ class _CustomPaddleSliderValueIndicatorPathPainter {
 
 class CustomPaddleSliderValueIndicatorShape extends SliderComponentShape {
   /// Create a slider value indicator in the shape of an upside-down pear.
-  const CustomPaddleSliderValueIndicatorShape();
+  double textScaleMultiplier;
+  double sizeMultiplier;
+  CustomPaddleSliderValueIndicatorShape({this.sizeMultiplier, this.textScaleMultiplier});
 
   static const _CustomPaddleSliderValueIndicatorPathPainter _pathPainter = _CustomPaddleSliderValueIndicatorPathPainter();
 
@@ -335,8 +335,8 @@ class CustomPaddleSliderValueIndicatorShape extends SliderComponentShape {
       Paint()..color = enableColor.evaluate(enableAnimation),
       activationAnimation.value,
       labelPainter,
-      textScaleFactor,
-      sizeWithOverflow,
+      textScaleFactor * textScaleMultiplier,
+      sizeWithOverflow * sizeMultiplier,
       null,
     );
   }
