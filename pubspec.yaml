@@ -1,7 +1,7 @@
 name: custom_paddle_slider_value_indicator_shape
-description: Allows you to manually adjust the size of your paddle slider value indicator.
+description: Allows you to manually adjust the size of the slider value indicator.
 version: 0.0.1
-author:
+author: handofthecode<deartovi@gmail.com>
 homepage:
 
 environment:
